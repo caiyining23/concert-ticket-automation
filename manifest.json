@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "SeatFlow - Ticket Companion",
+  "version": "0.1.0",
+  "description": "Local seat monitoring, notifications, and guided seat selection for Melon Ticket.",
+  "permissions": ["storage", "activeTab", "scripting", "notifications"],
+  "host_permissions": ["https://tkglobal.melon.com/*", "https://ticket.melon.com/*"],
+  "action": {"default_popup": "popup.html", "default_title": "SeatFlow"},
+  "background": {"service_worker": "src/background.js", "type": "module"},
+  "content_scripts": [{"matches": ["https://tkglobal.melon.com/*", "https://ticket.melon.com/*"], "js": ["src/content.js"], "run_at": "document_idle", "all_frames": true}]
+}
